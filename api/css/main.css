@@ -1,0 +1,74 @@
+.col-md-4 {
+            border: 1px solid #a1a1a1;
+            background: #dddddd;
+        }
+.col-md-4:hover{
+            background: navy;
+            color: white;
+}
+
+.col-md-6 {
+	   border: 1px solid lightgreen;
+	   background: #dddddd;
+}
+
+
+.col-md-6:hover {
+	background: darkgreen;
+	color: red;
+}
+.menu-sublist {
+	display:none;
+}
+
+.category-sublist {
+	display:none;
+}
+
+//#order-panel {
+//	display:none;
+//}
+
+#alerts {
+  position: fixed;
+  top: 80px;
+  left: 30%;
+  right: 30%;
+  z-index: 2000;
+}
+
+@side-menu-width: 500px;
+#order-panel {
+
+  @padding: 15px;
+
+  width: 40%;
+  left: -100%;
+
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 1030;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: gray;
+  padding: @padding;
+  padding-top: @hlerts {
+  position: fixed;
+  top: 80px;
+  left: 30%;
+  right: 30%;
+  z-index: 2000;
+}eader-offset + @padding;
+}
+
+
+/* When the window is at least 500px wide, fix the width of the menu to
+ *  * 500px. */
+@media (min-width: @side-menu-width) {
+
+  #order-panel {
+    width: @side-menu-width;
+    left: -@side-menu-width;
+  }
+}
+

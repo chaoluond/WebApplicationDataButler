@@ -1,0 +1,38 @@
+{% extends "welcomepage.html" %}
+{% block title %}Projects{% endblock title %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/dbcss/projects.css"/>
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1 class="text-on-canvas">Your Projects</h1>
+    <a href="/databutler/projects/new" class="btn btn-success pull-right" id='new-btn'>New project</a>
+    <hr />
+    <ul class = "list-group no-gutter">
+      {% set i = 0 %}
+      {% for tuple in projects %}
+      {% if i == 0 %}
+        <div class = "row">
+      {% elif i % 3 == 0 %}
+        </div>
+        <div class = "row">
+      {% endif %}
+        <li class="list-group-item project-list-item col-md-4"> 
+          <a href="/databutler/projects/{{tuple[0]}}" class="link-in-list">
+            <h4>{{tuple[1]}}</h4>
+            <!--p>{{tuple[2]}}</p-->
+          </a>
+          <div class="list-group action-sublist">
+           <a class="list-group-item action" href="/databutler/projects/{{tuple[0]}}">View project</a>
+           <a class="list-group-item action delete" href="/databutler/projects/{{tuple[0]}}">Delete project</a>
+
+          </div>
+        </li>
+      {% set i = i+1 %}
+      {% endfor %}
+        </div>
+    </ul>
+  </div>
+<script src="/dbjs/projects.js"></script>
+{% endblock content%}

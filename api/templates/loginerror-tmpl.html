@@ -1,0 +1,29 @@
+{% extends "welcomepage.html" %}
+{%block head%}
+{{super()}}
+<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+{%endblock head%}
+
+{%block content %}
+  <div class="login-card">
+  <h1>Log-in</h1><br>
+  <h2> Incorrect username or password. Please log in again.</h2><br>
+  <form role="form" method="POST" action="/databutler/userlogin" enctype="application/json" target="">
+  <input id="email-input" type="email" name="username" placeholder="Email" required>
+    <div id="email-error" class="validation-error"></div>
+  <input id="pwd-input" type="password" name="password" placeholder="Password" required>
+    <div id="password-error" class="validation-error"></div>
+ 
+  <input type="submit" value="Log In" class="login login-submit">
+  </form>
+
+  <div class="login-help">
+    <a href="/databutler/userregistration">Do not have an account. Sign-up here.</a>
+  </div>
+  </div>
+
+
+<!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+{%endblock content%}

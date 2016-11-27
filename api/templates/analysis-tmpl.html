@@ -1,0 +1,39 @@
+{% extends "welcomepage.html" %}
+{% block title %}Data File{% endblock title %}
+{% block head %}
+  {{ super() }}
+  <script src="/dbjs/datafile.js"></script>
+{% endblock %}
+{% block content %}
+ <div class="container">
+  <div class="jumbotron">
+    <h2 style="color:cornflowerblue">{{filename}}</h2>
+    <h4>File creator: {{fullname}} </h4>
+    <h4>File creation date: {{date}}</h4>
+  </div>
+ </div>
+
+
+  <div class="container">
+    <div class="col-md-3">
+	<h3 class="text-on-canvas">Options</h3>
+        <ul class="list-group">
+	<li class="list-group-item"><a class="link-in-list" href="/databutler/datafiles/{{dataID}}">View data</a></li>
+	<li class="list-group-item"><a class="link-in-list" href="/databutler/analytics/{{dataID}}/xyplot">x-y plot</a></li>
+	<li class="list-group-item"><a class="link-in-list" href=#>Regression</a></li>
+	<li class="list-group-item"><a class="link-in-list" href=#>Wolfram</a></li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+     <h3 class="text-on-canvas">Analysis window</h3>
+     {% if display %}
+     <iframe src='/databutler/analytics/{{dataID}}/figureview' style="background: white;" height="500px" width="800px"></iframe>
+     {% else %}
+     <iframe style="background: white" height = '500px' width='800px'></iframe>
+     {% endif %}
+     </div>
+  </div>
+{% endblock content %}
+
+  
+

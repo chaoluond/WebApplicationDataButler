@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+  <title>{% block title %}Data Butler{% endblock title %}</title>
+  <!--<meta charset="utf-8">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dbcss/mainfinal.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% endblock head %}
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/databutler">DataButler</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar">
+        {% if signed_in %}
+          <li><a  class="projects" href="/databutler/projects"><span class="glyphicon glyphicon-folder-open"></span> Projects</a></li>
+	  <div class="list-group action-sublist"></div>
+          <div class="list-group padding-list"></div>
+	{% else %}
+          <li><a href="/databutler/userlogin"><span class="glyphicon glyphicon-folder-close"></span> Projects</a></li>
+        {% endif %}
+      </ul>	
+      <ul class="nav navbar-nav navbar-right">
+      {% if signed_in %}
+       <li><a href="#"><span class="glyphicon glyphicon-user"></span>{{fullname}}'s Account</a></li>
+       <li><a href="/databutler/userlogout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+      {% else %}
+        <li><a href="/databutler/userregistration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/databutler/userlogin"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+      {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ {% block content %}
+ <div class="container">
+  <div class="jumbotron">
+    <h1>Your team, your data, connected!</h1>
+    <p>An online data storage, sharing, analysis, and management system! </p>
+    <a href="/databutler/userregistration" class="btn btn-info btn-lg">Get Started</a>
+  </div>
+</div>
+{% endblock content %}
+
+</body>
+</html>
+

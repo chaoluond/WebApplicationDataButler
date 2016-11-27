@@ -1,0 +1,49 @@
+{% extends "welcomepage.html" %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/dbcss/userregistration.css">
+{% endblock %}
+ 
+ 
+ {% block content %}
+  <div class="login-card">
+  <h1>Sign-up</h1><br>
+  <form id="user-add-form" role="form" method="POST" action="/databutler/userregistration" enctype="application/json" target="">
+
+  <label>First Name:</label>
+  <input id="user-firstName-input" type="text" name="firstName" placeholder="Enter first name" required >
+  <div id="firstName-error" class="validation-error"></div>
+
+ <label>Last Name:</label>
+  <input id="user-lastName-input" type="text" name="lastName" placeholder="Enter last name" required>
+  <div id="lastName-error" class="validation-error"></div>
+
+
+<label>Email:</label>
+  <input id="user-email-input" type="email" name="email" placeholder="Enter email" required>
+    <div id="email-error" class="validation-error"></div>
+
+
+
+<label>Password:</label>
+  <input id="user-password-input" type="password" name="password" placeholder="Enter password" required>
+  <div id="password-error" class="validation-error"></div>
+
+
+<label>Confirm Password:</label>
+  <input id="user-confirm-password-input" type="password" name="confirmPassword" placeholder="Enter password again" required>
+  <div id="confirm-password-error" class="validation-error"></div>
+
+
+  <input type="submit" value="Submit" class="login login-submit">
+  </form>
+
+  <div class="login-help">
+    <a href="/databutler/userlogin">Have an account. Log-in here.</a>
+  </div>
+  </div>
+
+
+  <script src="/dbjs/uservalidation.js"></script>
+    
+   {% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "welcomepage.html" %}
+{% block title %}Projects{% endblock title %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+ <div class="container">
+  <div class="jumbotron">
+    <h2 style="color:cornflowerblue">{{ projName }}</h2>
+    <h4>Project Creator: {{creator}}</h4>
+    <h4>Project Users: 
+	{%for user in users %}
+	{{user}},
+	{% endfor %}
+    </h4>
+    <h4>Description: {{description}}</h4>
+  </div>
+  
+  
+  <h3 class="text-on-canvas">Data files</h3>
+  {%for file in files%}
+  <a href="/databutler/datafiles/{{file[0]}}" class="list-group-item">{{file[2]}}<span style="float:right;">{{file[3]}}</span></a>
+  {% endfor %}
+  <a href=# id="upload" class="text-on-canvas"><h4>Upload file<h4></a> 
+
+  <div class="upload-form">
+  <h2>Upload File</h2>
+  
+  <form role="form" method="POST" action="/databutler/datafiles" enctype="multipart/form-data">
+
+  <label>Choose source file:</label>
+  <input id="file-input" type="file" name="userfile"  required>
+
+  <label>Description:</label>
+  <input id="des-input" type="text" name="description" placeholder="Description of this file..." required>
+
+  <input type="hidden" id="project-id" name="projID" value={{projID}}>
+  <input type="submit" value="Upload" class="login login-submit">
+  </form>
+
+  </div>
+  </a>
+
+<script src="/dbjs/projectid.js"></script>
+{% endblock content%}

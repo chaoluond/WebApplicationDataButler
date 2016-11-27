@@ -1,0 +1,9 @@
+{% extends "welcomepage.html" %}
+{% block head %}
+{{super()}}
+  <script type="text/javascript">
+            window.location.href = "/databutler/userlogin?logout_sign=True"
+  </script>
+
+{% endblock head%}
+

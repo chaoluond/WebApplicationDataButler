@@ -1,0 +1,37 @@
+{% extends "welcomepage.html" %}
+{% block title %}Data File{% endblock title %}
+{% block head %}
+  {{ super() }}
+  <script src="/dbjs/datafile.js"></script>
+{% endblock %}
+{% block content %}
+ <div class="container">
+  <div class="jumbotron">
+    <h2 style="color:cornflowerblue">{{filename}}</h2>
+    <h4>File creator: {{fullname}} </h4>
+    <h4>File creation date: {{date}}</h4>
+    <h4>In project: <a href="/databutler/projects/{{projID}}">{{projName}}</a><h4>
+  </div>
+ </div>
+
+
+  <div class="container">
+    <div class="col-md-3">
+	<h3 class="text-on-canvas">Menu</h3>
+        <ul class="list-group">
+	<li class="list-group-item"><a class="link-in-list" href="/databutler/datafiles/{{dataID}}">View data</a></li>
+	<li class="list-group-item"><a class="link-in-list" href="/databutler/datafiles/{{dataID}}/download">Download</a></li>
+	<li class="list-group-item"><a class="link-in-list" href="/databutler/datafiles/{{dataID}}/delete" id='delete-button'>Delete</a></li>
+	<li class="list-group-item"><a class="link-in-list" href="/databutler/analytics/{{dataID}}" id='data-analysis'>Analysis tools</a></li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+     <h3 class="text-on-canvas">Preview</h3>
+     <!--iframe src='/databutler/datafiles/{{dataID}}/preview' height="900px" width="450px"></iframe-->
+     <iframe src='/databutler/datafiles/{{dataID}}/preview' style="background: white;" height="500px" width="800px"></iframe>
+    </div>
+  </div>
+{% endblock content %}
+
+  
+
